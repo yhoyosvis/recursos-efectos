@@ -1,0 +1,370 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>TimelineXML - User Manual</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="Nikolay Dyankov">
+	<meta name="copyright" content="Nikolay Dyankov">
+	<meta name="generator" content="Documenter v1.6 http://rxa.li/documenter">
+	<meta name="date" content="2012-05-05T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+	
+	
+	<script src="js/jquery.1.6.4.js"></script>
+	
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushXml.js"></script>
+	<script src="js/shBrushJScript.js"></script>
+	<script>SyntaxHighlighter.defaults['toolbar'] = false;SyntaxHighlighter.all();</script>
+
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	<script src="js/script.js"></script>
+	
+	<style>
+		html{background-color:#EEEEEE;color:#383838;}
+		::-moz-selection{background:#333636;color:#00DFFC;}
+		::selection{background:#333636;color:#00DFFC;}
+		#documenter_sidebar #documenter_logo{background-image:url();}
+		a{color:#008C9E;}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#343838;color:#FFFFFF;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+		#documenter_sidebar ol{border-top:1px solid #212424;}
+		#documenter_sidebar ol a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;}
+		#documenter_sidebar ol a:hover{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_sidebar ol a.current{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+			<li><a href="#about_timelinexml">About TimelineXML</a></li>
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#how_to_use">How To Use</a>
+				<ol>
+					<li><a href="#how_to_use_step_1_the_html">Step 1: The HTML</a>
+					<li><a href="#how_to_use_step_2_fill_the_content_using_an_xml_file.">Step 2: Fill the content using an XML file.</a>
+					<li><a href="#how_to_use_step_2a_fill_the_content_using_html">Step 2a: Fill the content using HTML</a>
+					<li><a href="#how_to_use_step_3_call_the_plugin">Step 3: Call the plugin</a>
+				</ol>
+			</li>
+
+		</ol>
+		<div id="documenter_copyright">Copyright Nikolay Dyankov 2012<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v1.6</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover"><h1>TimelineXML</h1><h2>User Manual</h2><hr><ul><li>Created: 05/05/2012</li><li>latest Update: 05/05/2012</li><li>By: Nikolay Dyankov</li><li><a href=""></a></li><li>Email: <a href="mailto:&#109;&#101;&#64;&#110;&#105;&#107;&#111;&#108;&#97;&#121;&#100;&#121;&#97;&#110;&#107;&#111;&#118;&#46;&#99;&#111;&#109;">&#109;&#101;&#64;&#110;&#105;&#107;&#111;&#108;&#97;&#121;&#100;&#121;&#97;&#110;&#107;&#111;&#118;&#46;&#99;&#111;&#109;</a></li></ul></section><section id="about_timelinexml">
+	<h3>About TimelineXML</h3><hr class="notop">
+<p>
+	TimelineXML is a jQuery plugin that lets you display an interactive timeline from a list of events. It would fit nicely with blogs, corporate websites, portfolio sites and many more.</p>
+</section>
+<section id="installation">
+	<h3>Installation</h3><hr class="notop">
+<div>
+	It installs like every other jQuery plugin. Include the CSS and JS files in the header of your file and you&rsquo;re done! Examples:</div>
+<div>
+	&nbsp;</div>
+<pre class="brush: html">
+&lt;script src=&quot;path-to-script/timelinexml.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;path-to-stylesheet/timelinexml.css&quot;&gt;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	Some of the included designs need an image file, you will find it in the &ldquo;img&rdquo; folder. Put it where the rest of your images are, and most likely you will need to replace the path in the .css file. It&rsquo;s easiest to do using &ldquo;Find and Replace&rdquo;.</div>
+<div>
+	&nbsp;</div>
+</section>
+<section id="how_to_use">
+	<h3>How To Use</h3><hr class="notop">
+<div>
+	&nbsp;</div>
+<div>
+	There are three things that you need to do:</div>
+<div>
+	&nbsp;</div>
+	<ol>
+		<li>Add an HTML element that will hold the timeline</li>
+		<li>Fill the content</li>
+		<li>Call the plugin</li>
+	</ol>
+<div>
+	&nbsp;</div>
+<div>
+	It&rsquo;s really simple, here is it explained in detail:</div>
+<div>
+	&nbsp;</div>
+<h4 id="how_to_use_step_1_the_html">Step 1: The HTML</h4>
+<div>
+	A simple &lt;div&gt; tag with an ID will do just fine:</div>
+<div>
+	&nbsp;</div>
+<pre class="brush: html">
+&lt;div id=&rdquo;my-timeline&rdquo;&gt;&lt;/div&gt;</pre>
+<div>
+	&nbsp;</div>
+<div>
+	That&rsquo;s the element that will hold the HTML for the entire timeline. You are free to position and style it however you like, you won&rsquo;t brake anything. The ID is not necessary, it&rsquo;s just for convenience when you call the script. Of course you can use any CSS selector that you like, more on that later.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<h4 id="how_to_use_step_2_fill_the_content_using_an_xml_file.">Step 2: Fill the content using an XML file.</h4>
+	<div>
+		&nbsp;</div>
+	<div>
+		This is the file that will hold the content for the timeline.</div>
+	<div>
+		&nbsp;</div>
+	<h5>
+		New XML file</h5>
+	<div>
+		&nbsp;</div>
+	<div>
+		Make a new .xml file, name it however you like. For this example we will call it timeline.xml and we&rsquo;ll place it in the main project folder (where the index.html is).</div>
+	<div>
+		Open timeline.xml with a plane text editor like Notepad, TextMate, Notepad++ etc. and add the header:</div>
+	<div>
+		&nbsp;</div>
+	<pre class="brush: html">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</pre>
+	<div>
+		&nbsp;</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		Now it&rsquo;s time to fill the content. First, add a &lt;timeline&gt; tag:</div>
+	<div>
+		&nbsp;</div>
+	<pre class="brush: html">
+&lt;timeline&gt;&lt;/timeline&gt;</pre>
+	<div>
+		&nbsp;</div>
+	<div>
+		Inside the &lt;timeline&gt; tag start adding events, like this:</div>
+	<div>
+		&nbsp;</div>
+	<pre class="brush: html">
+&lt;event&gt;
+    &lt;date&gt;12.03.2004&lt;/date&gt;
+    &lt;title&gt;The title&lt;/title&gt;
+    &lt;thumb&gt;img/thumb1.jpg&lt;/thumb&gt;
+    &lt;content&gt;
+    The text
+    &lt;/content&gt;
+    &lt;link&gt;http://a-link-leading-to-the-full-text&lt;/link&gt;
+&lt;/event&gt;</pre>
+	<div>
+		&nbsp;</div>
+	<div>
+		There are a few things to note here:</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		The link and thumb are optional</div>
+	<div>
+		You must follow the exact same format for the date! Otherwise the plugin won&rsquo;t parse it correctly and the event won&rsquo;t be placed in the correct position.</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		You can also reference the sample .xml file that came with the plugin. When you are done, save and close the file and that&rsquo;s all there is to the .xml file. Moving on to...</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		&nbsp;</div>
+	<h5>
+		Existing XML file</h5>
+	<div>
+		&nbsp;</div>
+	<div>
+		As of version 1.3, you can now use any existing xml file. However, to make it work with the plugin, you need to tell it which tags to parse from the file. That is done with parameters passed to the plugin. To read about all parameters, see step 3.</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		&nbsp;</div>
+	<div>
+		<h4 id="how_to_use_step_2a_fill_the_content_using_html">Step 2a: Fill the content using HTML</h4>
+		<div>
+			&nbsp;</div>
+		<div>
+			While using xml is recommended, you can use HTML if you need to. Here is what your html needs to look like:</div>
+		<div>
+			&nbsp;</div>
+		<pre class="brush: html">
+&lt;div class=&rdquo;timeline-html-wrap&rdquo;&gt;
+    &lt;div class=&rdquo;timeline-event&rdquo;&gt;
+    &lt;div class=&rdquo;timeline-date&rdquo;&gt;12.03.2004&lt;/div&gt;
+    &lt;div class=&rdquo;timeline-title&rdquo;&gt;The title&lt;/div&gt;
+    &lt;div class=&rdquo;timeline-thumb&rdquo;&gt;img/thumb1.jpg&lt;/div&gt;
+    &lt;div class=&rdquo;timeline-content&rdquo;&gt;
+   &nbsp;    The text
+    &lt;/div&gt;
+    &lt;div class=&rdquo;timeline-link&rdquo;&gt;http://a-link-leading-to-the-full-text&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+		<div>
+			&nbsp;</div>
+		<div>
+			Notes:</div>
+		<div>
+			The class names don&rsquo;t need to be the same, but those are the defaults and if you decide to use other class names you need to specify that as a parameter when you call the plugin. Read more about the parameters in Step 3.</div>
+		<div>
+			The plugin only takes information from those elements and it leaves them unchanged. Which means that they can still be somewhere in your page (as articles for example), but you still need to consider the class names (see the note above)</div>
+		<div>
+			&nbsp;</div>
+		<h4 id="how_to_use_step_3_call_the_plugin">Step 3: Call the plugin</h4>
+		<div>
+			&nbsp;</div>
+		<div>
+			The final step is to call the plugin, like this:</div>
+		<div>
+			&nbsp;</div>
+		<pre class="brush: js">
+$(&#39;#my-timeline&#39;).timelinexml({ src : &#39;timeline.xml&#39; });</pre>
+		<div>
+			&nbsp;</div>
+		<div>
+			Or if you are using HTML as an input, you need to specify the wrapper element for the content, like this:</div>
+		<div>
+			&nbsp;</div>
+		<pre class="brush: js">
+$(&#39;#my-timeline&#39;).timelinexml({ src : $(&lsquo;.timeline-wrap&rsquo;) });</pre>
+		<div>
+			&nbsp;</div>
+		<div>
+			#my-timeline - that&rsquo;s the selector that we use to specify in which element to put the timeline. In this case we are referencing an element with an ID &ldquo;my-timeline&rdquo;</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			&nbsp;</div>
+		<h5>
+			Parameters:</h5>
+		<div>
+			&nbsp;</div>
+		<div>
+			General:</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>src</strong></div>
+		<div>
+			specify the path to the .xml file, relative to the file from which you call the plugin. For example, if you put that line in script.js, which is included in index.html, the path should be relative to index.html</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>showLatest</strong></div>
+		<div>
+			shows the title of the latest event on page load</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>selectLatest</strong></div>
+		<div>
+			shows the title and content of the latest event on page load</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			If you are using an existing XML file:</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>eventTagName</strong></div>
+		<div>
+			The name of the tag containing the event</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>dateTagName</strong></div>
+		<div>
+			The name of the tag containing the date</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>titleTagName</strong></div>
+		<div>
+			The name of the tag containing the title<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>thumbTagName</strong></div>
+		<div>
+			The name of the tag containing the path (only the path) to the thumbnail image</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>contentTagName</strong></div>
+		<div>
+			The name of the tag containing the main text</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>linkTagName</strong></div>
+		<div>
+			The name of the tag containing the link.</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			If you are using HTML:</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			The parameters to the same thing as the above ones, but instead of a tag name in an xml file you specify the class name of an HTML element.</div>
+		<div>
+			&nbsp;</div>
+			<strong>
+		<div>
+			htmlEventClassName</div>
+		<div>
+			htmlDateClassName</div>
+		<div>
+			htmlTitleClassName</div>
+		<div>
+			htmlThumbClassName</div>
+		<div>
+			htmlContentClassName</div>
+		<div>
+			htmlLinkClassName</div>
+		</strong>
+		<div>
+			&nbsp;</div>
+		<div>
+			Example:</div>
+		<div>
+			&nbsp;</div>
+		<pre class="brush: js">
+$(&#39;#my-timeline&#39;).timelinexml({ src : &#39;timeline.xml&#39;, showLatest : true, selectLatest : false });</pre>
+		<div>
+			&nbsp;</div>
+		<div>
+			That&rsquo;s all, TimelineXML should be up and running!</div>
+		<div>
+			&nbsp;</div>
+	</div>
+	<div>
+		&nbsp;</div>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+
+	</div>
+</body>
+</html>

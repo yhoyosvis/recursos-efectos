@@ -1,0 +1,7 @@
+Instructions on how to install a skin:
+
+1. Rename the .css file in the skin's folder to "timeliner.css"
+2. Copy it to the css folder inside the plugin folder. Delete the old .css file if necessary
+3. If there is a sprite image in the skin folder, copy it to the "img" folder, inside the plugin folder.
+
+That's all!
